@@ -22,13 +22,11 @@ class List extends Component {
     this.setState({
       items: enteredItems
       })
-    console.log(this.state.items)
   }
 
   onDelete(index) {
-    console.log(this);
     var deleteItem = this.state.items.slice()
-    deleteItem.splice(index.index, 1)
+    deleteItem.splice(index, 1)
     this.setState({
       items: deleteItem
     })
@@ -46,7 +44,6 @@ class List extends Component {
   render(){
     let items = this.state.items.map((item, index) => (
         <div key={index}>
-          <h1>{index}</h1>
           <Item index={index} handleDelete={this.onDelete.bind(this)} body={item.body}/>
         </div>
     ))
